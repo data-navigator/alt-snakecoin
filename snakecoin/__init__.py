@@ -1,4 +1,4 @@
 # coding=utf-8
-"""The snakecoin package."""
+"""Snakecoin blockchain package"""
 from .block import Block
 from .blockchain import Blockchain

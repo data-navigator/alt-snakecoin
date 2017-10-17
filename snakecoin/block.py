@@ -1,6 +1,7 @@
 # coding=utf-8
 """Creates the genesis block for the snakecoin blockchain."""
 import hashlib
+import json
 
 
 class Block:
@@ -20,6 +21,14 @@ class Block:
                    str(self.data).encode('utf-8') +
                    str(self.previous_hash).encode('utf-8'))
         return sha.hexdigest()
+
+    @property
+    def json(self):
+        """Return a JSON representation of this Block."""
+        return json.dumps({"index": self.index,
+                           "timestamp": str(self.timestamp),
+                           "data": self.data,
+                           "hash": self.hash})
 
     def next_block(self):
         """Creates the next Block in the blockchain."""
